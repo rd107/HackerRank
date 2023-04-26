@@ -10,27 +10,33 @@ public class RepeatedString
 		
 		String str = userInput.next();
 		
-		long limit = userInput.nextLong();
+		long n = userInput.nextLong();
 		
-		long num = limit/str.length();
+		long NoOfReps = n/str.length();
 		
-		long rem = limit%str.length();
+		long rem = n%str.length();
 		
-		long ans = 0;
+		long total = 0;
 		
 		for(int i=0;i<str.length();i++)
 		{
 			if(str.charAt(i)=='a')
 			{
-				ans+=num;
-				
-				if(i<rem)
-					ans++;
-				
+				total++;
 			}
 		}
 		
-		System.out.println(ans);
+		total = total * NoOfReps;
+		
+		for(int i=0;i<rem;i++)
+		{
+			if(str.charAt(i)=='a')
+			{
+				total++;
+			}
+		}
+		
+		System.out.println(total);
 		
 		userInput.close();
 	}
